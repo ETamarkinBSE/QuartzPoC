@@ -28,7 +28,7 @@ var job3 = JobBuilder.Create<BasicJob>()
     .Build();
 // job with cron schedule
 var job4 = JobBuilder.Create<HelloJob>()
-    .WithIdentity("job2", "group1")
+    .WithIdentity("job4", "group1")
     .Build();
 // job with data and re-fire
 var job5 = JobBuilder.Create<RecoverableJob>()
