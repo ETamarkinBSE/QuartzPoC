@@ -1,0 +1,21 @@
+﻿using Microsoft.Extensions.Logging;
+using Temporalio.Activities;
+
+namespace TemporalScheduleSampleApp
+{
+    public static class MyActivities
+    {
+        [Activity]
+        public static void AddReminderToDatabase(string text)
+        {
+            ActivityExecutionContext.Current.Logger.LogInformation("Adding reminder record to the database");
+        }
+
+        [Activity]
+        public static Task NotifyUserAsync(string text)
+        {
+            ActivityExecutionContext.Current.Logger.LogInformation("Notifying user reminder: {Text}", text);
+            return Task.CompletedTask;
+        }
+    }
+}

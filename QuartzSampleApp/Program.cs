@@ -79,10 +79,10 @@ var trigger5 = TriggerBuilder.Create()
     .ForJob(job5)
     .Build();
 // job scheduling
-await scheduler.ScheduleJob(job1, trigger1);
-await scheduler.ScheduleJob(job2, trigger2);
-await scheduler.ScheduleJob(job3, trigger3);
-await scheduler.ScheduleJob(job4, trigger4);
+//await scheduler.ScheduleJob(job1, trigger1);
+//await scheduler.ScheduleJob(job2, trigger2);
+//await scheduler.ScheduleJob(job3, trigger3);
+//await scheduler.ScheduleJob(job4, trigger4);
 await scheduler.ScheduleJob(job5, trigger5);
 await scheduler.Start();
 //await scheduler.PauseTriggers(GroupMatcher<TriggerKey>.GroupEquals("group1"));
