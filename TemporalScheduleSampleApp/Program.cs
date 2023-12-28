@@ -6,12 +6,10 @@ using Temporalio.Worker;
 using TemporalScheduleSampleApp;
 
 // Create a client to localhost on default namespace
-var client = await TemporalClient.ConnectAsync(new("localhost:7233")
+var client = await TemporalClient.ConnectAsync(new()
 {
-    LoggerFactory = LoggerFactory.Create(builder =>
-        builder.
-            //AddSimpleConsole(options => options.TimestampFormat = "[HH:mm:ss] ").
-            SetMinimumLevel(LogLevel.Information)),
+    TargetHost = "localhost:7234",
+    Namespace = "my-namespace",
 });
 
 async Task RunWorkerAsync()

@@ -2,9 +2,11 @@
 
 using System;
 using System.Collections.Specialized;
+using System.Reflection;
 using Quartz;
 using Quartz.Impl;
 using Quartz.Logging;
+using QuartzSampleApp;
 using QuartzSampleApp.Jobs;
 using QuartzSampleApp.Loggers;
 
@@ -12,7 +14,10 @@ using QuartzSampleApp.Loggers;
 LogProvider.SetCurrentLogProvider(new ConsoleLogProvider());
 // create scheduler
 var schedulerFactory = new StdSchedulerFactory();
+schedulerFactory.Initialize();
 var scheduler = await schedulerFactory.GetScheduler();
+//var listener = new JobListener();
+//scheduler.ListenerManager.AddJobListener(listener);
 // jobs
 // regular job
 var job1 = JobBuilder.Create<BasicJob>()
@@ -45,7 +50,7 @@ var trigger1 = TriggerBuilder.Create()
     .WithIdentity("trigger1", "group1")
     .StartNow()
     .WithSimpleSchedule(x => x 
-        .WithIntervalInSeconds(2)
+        .WithIntervalInSeconds(10)
         .RepeatForever())
     .Build();
 var trigger2 = TriggerBuilder.Create()
@@ -79,11 +84,11 @@ var trigger5 = TriggerBuilder.Create()
     .ForJob(job5)
     .Build();
 // job scheduling
-//await scheduler.ScheduleJob(job1, trigger1);
+await scheduler.ScheduleJob(job1, trigger1);
 //await scheduler.ScheduleJob(job2, trigger2);
 //await scheduler.ScheduleJob(job3, trigger3);
 //await scheduler.ScheduleJob(job4, trigger4);
-await scheduler.ScheduleJob(job5, trigger5);
+//await scheduler.ScheduleJob(job5, trigger5);
 await scheduler.Start();
 //await scheduler.PauseTriggers(GroupMatcher<TriggerKey>.GroupEquals("group1"));
 await Task.Delay(TimeSpan.FromSeconds(200));
