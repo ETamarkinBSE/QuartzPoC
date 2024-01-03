@@ -1,7 +1,7 @@
 ﻿using Quartz;
-using QuartzPoC2.Entry.Jobs;
+using QuartzPoC.Entry.Jobs;
 
-namespace QuartzPoC2.Entry
+namespace QuartzPoC.Entry
 {
     public class JobListener : IJobListener
     {

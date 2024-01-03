@@ -1,6 +1,6 @@
 ﻿using Quartz;
 
-namespace QuartzPoC2.Entry.Jobs
+namespace QuartzPoC.Entry.Jobs
 {
     public class BasicJob : IJob
     {

@@ -1,8 +1,7 @@
 ﻿using Quartz;
-using Quartz.Impl;
-using QuartzPoC2.Entry.Jobs;
+using QuartzPoC.Entry.Jobs;
 
-namespace QuartzPoC2.Entry
+namespace QuartzPoC.Entry
 {
     public static class DependencyInjection
     {

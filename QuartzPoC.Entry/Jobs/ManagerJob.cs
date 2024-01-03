@@ -1,16 +1,16 @@
 ﻿using Microsoft.VisualBasic;
 using Quartz;
 
-namespace QuartzPoC2.Entry.Jobs
+namespace QuartzPoC.Entry.Jobs
 {
     public class ManagerJob : IJob
     {
-        public static List<string> JobDetails { get; set; } = new ();
+        public static List<string> JobDetails { get; set; } = new();
         private readonly ILogger<ManagerJob> _logger;
 
         public ManagerJob(ILogger<ManagerJob> logger)
         {
-            this._logger = logger;
+            _logger = logger;
         }
 
         public Task Execute(IJobExecutionContext context)
@@ -35,7 +35,7 @@ namespace QuartzPoC2.Entry.Jobs
                 }
                 result += "\n";
             }
-            _logger.LogInformation("{result}",result);
+            _logger.LogInformation("{result}", result);
             return Task.CompletedTask;
         }
     }

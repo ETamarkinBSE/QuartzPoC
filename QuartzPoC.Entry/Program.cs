@@ -1,7 +1,4 @@
-using Quartz;
-using Quartz.Impl;
-using QuartzPoC2.Entry;
-using QuartzPoC2.Entry.Jobs;
+using QuartzPoC.Entry;
 
 var builder = WebApplication.CreateBuilder(args);
 

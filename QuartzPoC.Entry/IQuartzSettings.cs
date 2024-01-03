@@ -1,4 +1,4 @@
-﻿namespace QuartzPoC2.Entry
+﻿namespace QuartzPoC.Entry
 {
     public interface IQuartzSettings
     { 
